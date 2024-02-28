@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Upgrade all casks
+      community.general.homebrew_cask:
+        upgrade_all: true
+
+

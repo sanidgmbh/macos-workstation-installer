@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Upgrade all installed Mac App Store Apps
+      community.general.mas:
+        upgrade_all: true

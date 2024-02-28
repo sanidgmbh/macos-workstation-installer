@@ -1,0 +1,39 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Install chrome with Homebrew
+      community.general.homebrew_cask:
+        update_homebrew: true
+        name: google-chrome
+        state: present
+    - name: Install Microsoft Teams with Homebrew
+      community.general.homebrew_cask:
+        name: microsoft-teams
+        state: present
+    - name: Install 1Password with Homebrew
+      community.general.homebrew_cask:
+        name: 1password
+        state: present
+    - name: Install Tunnelblick with Homebrew
+      community.general.homebrew_cask:
+        name: tunnelblick
+        state: present
+    - name: Install CleanMyMac with Homebrew
+      community.general.homebrew_cask:
+        name: cleanmymac
+        state: present
+    - name: Install Raycast with Homebrew
+      community.general.homebrew_cask:
+        name: raycast
+        state: present
+    - name: Install AltTab with Homebrew
+      community.general.homebrew_cask:
+        name: alt-tab
+        state: present
+    - name: Install Rectangle with Homebrew
+      community.general.homebrew_cask:
+        name: rectangle
+        state: present
+
+

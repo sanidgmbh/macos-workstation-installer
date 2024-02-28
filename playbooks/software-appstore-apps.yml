@@ -6,9 +6,6 @@
       community.general.mas:
         id:
           - 497799835 # Xcode
+          - 1085114709 # Parallels Desktop
 #          - 429449079 # Patterns - The Regex App
-        state: latest
-
-    - name: Upgrade all installed Mac App Store Apps
-      community.general.mas:
-        upgrade_all: true
+        state: present

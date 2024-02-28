@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Install Jetbrains Toolbox with Homebrew
+      community.general.homebrew_cask:
+        name: jetbrains-toolbox
+        state: present
+    - name: Install Sublimetext with Homebrew
+      community.general.homebrew_cask:
+        name: sublime-text
+        state: present
+    - name: Install Docker with Homebrew
+      community.general.homebrew_cask:
+        name: docker
+        state: present
+    - name: Install Postman with Homebrew
+      community.general.homebrew_cask:
+        name: postman
+        state: present
+    - name: Install Gas Mask with Homebrew
+      community.general.homebrew_cask:
+        name: gas-mask
+        state: present
+    - name: Install Vysor with Homebrew
+      community.general.homebrew_cask:
+        name: vysor
+        state: present

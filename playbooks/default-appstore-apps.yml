@@ -14,7 +14,7 @@
           - 462058435 # Microsoft Excel
           - 462062816 # Microsoft PowerPoint
           - 823766827 # OneDrive
-        state: latest
+        state: present
 
     - name: Upgrade all installed Mac App Store Apps
       community.general.mas:
