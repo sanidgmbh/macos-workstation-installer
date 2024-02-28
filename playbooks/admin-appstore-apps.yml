@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Install default App Store applications
+      community.general.mas:
+        id:
+          - 1295203466 # Microsoft Remote Desktop
+        state: present

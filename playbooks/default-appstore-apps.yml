@@ -2,7 +2,7 @@
 - hosts: localhost
 
   tasks:
-    - name: Install App Store Applications
+    - name: Install default App Store applications
       community.general.mas:
         id:
           - 409183694 # Keynote
@@ -15,7 +15,3 @@
           - 462062816 # Microsoft PowerPoint
           - 823766827 # OneDrive
         state: present
-
-    - name: Upgrade all installed Mac App Store Apps
-      community.general.mas:
-        upgrade_all: true

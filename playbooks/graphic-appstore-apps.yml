@@ -1,0 +1,11 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Install graphics App Store applications
+      community.general.mas:
+        id:
+          - 1616822987 # Affinity Photo
+          - 1616831348 # Affinity Designer
+          - 1606941598 # Affinity Publisher
+        state: present

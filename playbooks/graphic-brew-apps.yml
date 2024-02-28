@@ -6,15 +6,3 @@
       community.general.homebrew_cask:
         name: paintcode
         state: present
-    - name: Install Affinity Designer with Homebrew
-      community.general.homebrew_cask:
-        name: affinity-designer
-        state: present
-    - name: Install Affinity Photo with Homebrew
-      community.general.homebrew_cask:
-        name: affinity-photo
-        state: present
-    - name: Install Affinity Publisher with Homebrew
-      community.general.homebrew_cask:
-        name: affinity-publisher
-        state: present
