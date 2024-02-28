@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+
+  tasks:
+    - name: Install App Store Applications
+      community.general.mas:
+        id:
+          - 497799835 # Xcode
+#          - 429449079 # Patterns - The Regex App
+        state: latest
+
+    - name: Upgrade all installed Mac App Store Apps
+      community.general.mas:
+        upgrade_all: true
