@@ -4,4 +4,4 @@
 
 2. Press `command ⌘ + space` and type `Terminal` to open the Terminal
 
-3. Type (or paste) the following and press Enter: `/bin/bash -c "$(curl -fsSL https://TODO-where-do-we-put/mac-setup.sh)"`
+3. Type (or paste) the following and press Enter: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sanidgmbh/macos-workstation-installer/main/setup.sh)"`
