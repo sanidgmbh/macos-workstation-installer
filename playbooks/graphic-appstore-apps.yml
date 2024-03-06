@@ -1,11 +1,16 @@
 ---
 - hosts: localhost
 
+  vars:
+    app_store_apps:
+      - 1616822987 # Affinity Photo
+      - 1616831348 # Affinity Designer
+      - 1606941598 # Affinity Publisher
+
   tasks:
-    - name: Install graphics App Store applications
+    - loop: '{{ app_store_apps }}'
+      name: Install graphics App Store applications
+      ignore_errors: true
       community.general.mas:
-        id:
-          - 1616822987 # Affinity Photo
-          - 1616831348 # Affinity Designer
-          - 1606941598 # Affinity Publisher
+        id: '{{ item }}'
         state: present

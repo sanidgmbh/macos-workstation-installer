@@ -1,17 +1,22 @@
 ---
 - hosts: localhost
 
+  vars:
+    app_store_apps:
+      - 409183694 # Keynote
+      - 409201541 # Pages
+      - 409203825 # Numbers
+      - 1451685025 # WireGuard
+      - 985367838 # Microsoft Outlook
+      - 462054704 # Microsoft Word
+      - 462058435 # Microsoft Excel
+      - 462062816 # Microsoft PowerPoint
+      - 823766827 # OneDrive
+
   tasks:
-    - name: Install default App Store applications
+    - loop: '{{ app_store_apps }}'
+      name: Install default App Store applications
+      ignore_errors: true
       community.general.mas:
-        id:
-          - 409183694 # Keynote
-          - 409201541 # Pages
-          - 409203825 # Numbers
-          - 1451685025 # WireGuard
-          - 985367838 # Microsoft Outlook
-          - 462054704 # Microsoft Word
-          - 462058435 # Microsoft Excel
-          - 462062816 # Microsoft PowerPoint
-          - 823766827 # OneDrive
+        id: '{{ item }}'
         state: present

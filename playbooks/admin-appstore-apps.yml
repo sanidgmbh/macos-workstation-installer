@@ -1,9 +1,14 @@
 ---
 - hosts: localhost
 
+  vars:
+    app_store_apps:
+      - 1295203466 # Microsoft Remote Desktop
+
   tasks:
-    - name: Install default App Store applications
+    - loop: '{{ app_store_apps }}'
+      name: Install default App Store applications
+      ignore_errors: true
       community.general.mas:
-        id:
-          - 1295203466 # Microsoft Remote Desktop
+        id: '{{ item }}'
         state: present

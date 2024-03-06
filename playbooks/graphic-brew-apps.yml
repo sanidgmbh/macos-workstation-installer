@@ -1,8 +1,22 @@
 ---
 - hosts: localhost
 
+  vars:
+    brew_cask_apps:
+      - paintcode
+#    brew_apps:
+#      - ...
+
   tasks:
-    - name: Install PaintCode with Homebrew
+    - loop: '{{ brew_cask_apps }}'
+      name: Installing Homebrew cask apps
+      ignore_errors: true
       community.general.homebrew_cask:
-        name: paintcode
+        name: '{{ item }}'
         state: present
+#    - loop: '{{ brew_apps }}'
+#      name: Installing Homebrew apps
+#      ignore_errors: true
+#      community.general.homebrew:
+#        name: '{{ item }}'
+#        state: present

@@ -5,5 +5,8 @@
     - name: Upgrade all casks
       community.general.homebrew_cask:
         upgrade_all: true
+    - name: Upgrade all homebrew packages
+      community.general.homebrew:
+        upgrade_all: true
 
 

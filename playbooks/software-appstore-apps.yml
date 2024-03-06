@@ -1,11 +1,16 @@
 ---
 - hosts: localhost
 
+  vars:
+    app_store_apps:
+      - 497799835 # Xcode
+      - 1085114709 # Parallels Desktop
+#     - 429449079 # Patterns - The Regex App
+
   tasks:
-    - name: Install App Store Applications
+    - loop: '{{ app_store_apps }}'
+      name: Install default App Store applications
+      ignore_errors: true
       community.general.mas:
-        id:
-          - 497799835 # Xcode
-          - 1085114709 # Parallels Desktop
-#          - 429449079 # Patterns - The Regex App
+        id: '{{ item }}'
         state: present

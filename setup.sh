@@ -1,9 +1,31 @@
 #!/bin/sh
 
-# Install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+echo "################################################################################"
+echo "#                                                                              #"
+echo "#                     Welcome to SANID Mac Installer                           #"
+echo "#                                                                              #"
+echo "#  !!! Make sure that you are logged into the App Store with your AppleID !!!  #"
+echo "#                                                                              #"
+echo "################################################################################"
+echo ""
+echo ""
 
-echo "Select a configuration for this workstation: "
+while true; do
+    # shellcheck disable=SC2039
+    read -p "Are you already logged in to the Mac App Store? (y/n): " yn
+    case $yn in
+        [Yy]* ) echo ""; break ;;
+        [Nn]* ) echo "Please log to the Mac App Store, opening it for you ..."; open -a "App Store" ;;
+        * ) echo "Please answer y(yes) or n(no)";;
+    esac
+done
+
+echo "################################################################################"
+echo "#                                                                              #"
+echo "#             Select a configuration (1-5) for this workstation                #"
+echo "#                                                                              #"
+echo "################################################################################"
+echo ""
 
 PS3='Choose configuration (1-5, 6 to cancel): '
 # shellcheck disable=SC2039
@@ -48,7 +70,24 @@ if [ "$config" == "no-selection" ]; then
     exit 1
 fi
 
+echo ""
 echo "Selected config: $opt ($config) ..."
+echo ""
+
+echo "################################################################################"
+echo "#                                                                              #"
+echo "# Selected config: $opt ($config)                                               "
+echo "#                                                                              #"
+echo "# ! Your will be prompted for your login password for the next installation !  #"
+echo "#                                                                              #"
+echo "################################################################################"
+echo ""
+echo ""
+
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+exit 1
 
 # Install ansible
 brew install ansible

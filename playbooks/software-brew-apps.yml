@@ -1,28 +1,34 @@
 ---
 - hosts: localhost
 
+  vars:
+    brew_cask_apps:
+      - unity
+      - jetbrains-toolbox
+      - sublime-text
+      - docker
+      - postman
+      - gas-mask
+      - vysor
+      - firefox
+      - fnm
+    brew_apps:
+      - fvm
+
   tasks:
-    - name: Install Jetbrains Toolbox with Homebrew
+    - name: Tap the fvm Homebrew repository
+      ignore_errors: true
+      community.general.homebrew_tap:
+        name: leoafarias/fvm
+    - loop: '{{ brew_cask_apps }}'
+      name: Installing Homebrew cask apps
+      ignore_errors: true
       community.general.homebrew_cask:
-        name: jetbrains-toolbox
+        name: '{{ item }}'
         state: present
-    - name: Install Sublimetext with Homebrew
-      community.general.homebrew_cask:
-        name: sublime-text
-        state: present
-    - name: Install Docker with Homebrew
-      community.general.homebrew_cask:
-        name: docker
-        state: present
-    - name: Install Postman with Homebrew
-      community.general.homebrew_cask:
-        name: postman
-        state: present
-    - name: Install Gas Mask with Homebrew
-      community.general.homebrew_cask:
-        name: gas-mask
-        state: present
-    - name: Install Vysor with Homebrew
-      community.general.homebrew_cask:
-        name: vysor
+    - loop: '{{ brew_apps }}'
+      name: Installing Homebrew apps
+      ignore_errors: true
+      community.general.homebrew:
+        name: '{{ item }}'
         state: present
