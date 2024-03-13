@@ -87,7 +87,7 @@ echo ""
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-exit 1
+# exit 1 (comment for testing)
 
 # Install ansible
 brew install ansible
