@@ -5,6 +5,7 @@
     brew_cask_apps:
       - cyberduck
       - teamviewer
+      - 1password-cli
     brew_apps:
       - terraform
 
