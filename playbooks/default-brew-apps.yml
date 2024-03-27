@@ -12,6 +12,7 @@
       - alt-tab
       - rectangle
       - keka
+      - adobe-acrobat-reader
 #    brew_apps:
 #      - ...
 
